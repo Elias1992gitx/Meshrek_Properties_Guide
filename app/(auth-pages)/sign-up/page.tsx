@@ -1,9 +1,9 @@
-import React from 'react'
+import { NextPage } from 'next'
 
-const page = () => {
+const SignUpPage: NextPage = () => {
   return (
     <div>page</div>
   )
 }
 
-export default page
+export default SignUpPage

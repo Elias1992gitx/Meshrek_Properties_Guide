@@ -4,7 +4,16 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 
-const cards = [
+interface Card {
+  id: number;
+  title: string;
+  description: string;
+  bgGradient: string;
+  overlayImage: string;
+  mainImage: string;
+}
+
+const cards: Card[] = [
   {
     id: 1,
     title: "Get a bird's-eye-view of your next home with Floor Plans",

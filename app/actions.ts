@@ -5,7 +5,7 @@ import { createClient } from "@/utils/supabase/server";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 
-export const signUpAction = async (formData: FormData) => {
+export const signUpAction = async (formData: FormData): Promise<never> => {
   const email = formData.get("email")?.toString();
   const password = formData.get("password")?.toString();
   const supabase = await createClient();
@@ -39,7 +39,7 @@ export const signUpAction = async (formData: FormData) => {
   }
 };
 
-export const signInAction = async (formData: FormData) => {
+export const signInAction = async (formData: FormData): Promise<never> => {
   const email = formData.get("email") as string;
   const password = formData.get("password") as string;
   const supabase = await createClient();
