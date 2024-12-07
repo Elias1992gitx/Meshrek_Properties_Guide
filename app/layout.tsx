@@ -8,7 +8,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={GeistSans.className}>
-      <body>{children}</body>
+      <body className="relative w-full overflow-x-hidden">
+        <div className="relative w-full">
+          {children}
+        </div>
+      </body>
     </html>
   );
 }
