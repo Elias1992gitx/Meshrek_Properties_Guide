@@ -1,101 +1,114 @@
-import React from 'react'
-import Image from 'next/image'
+import React from 'react';
+import { FaMapMarkerAlt, FaPlay } from 'react-icons/fa';
+import { RiAiGenerate } from 'react-icons/ri';
 
 const Home = () => {
   return (
-    <div className="relative min-h-screen w-full">
-      {/* Hero Background with Parallax Effect */}
-      <div className="absolute inset-0">
-        <Image
-          src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?q=80"
-          alt="Luxury modern architecture"
-          fill
-          className="object-cover transition-transform duration-300 scale-105 hover:scale-100"
-          priority
-        />
-        {/* Gradient Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/60" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/30" />
-        
-        {/* Animated Grain Effect */}
-        <div className="absolute inset-0 opacity-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIzMDAiIGZpbHRlcj0idXJsKCNhKSIgb3BhY2l0eT0iMC4wNSIvPjwvc3ZnPg==')]" />
+    <div className="relative min-h-screen">
+      {/* Hero Background */}
+      <div 
+        className="absolute inset-0 z-0"
+        style={{
+          backgroundImage: 'url("https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80")',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
+        <div className="absolute inset-0 bg-black/40" />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 px-4 py-20 md:px-8 w-full">
-        {/* Navigation */}
-        <nav className="flex flex-wrap items-center justify-center gap-4 sm:gap-8 p-4 mb-12 bg-white/90 backdrop-blur-md rounded-full max-w-4xl mx-auto shadow-lg shadow-black/5 hover:shadow-xl transition-shadow duration-300">
-          <button className="text-sm md:text-base text-emerald-600 font-semibold hover:scale-105 transition-transform">Properties</button>
-          <button className="text-sm md:text-base hover:text-emerald-600 transition-colors">New Projects</button>
-          <button className="text-sm md:text-base hover:text-emerald-600 transition-colors">Transactions</button>
-          <button className="text-sm md:text-base flex items-center gap-2 group">
-            TruEstimate™ 
-            <span className="px-2 py-0.5 text-xs bg-gradient-to-r from-red-500 to-red-600 text-white rounded-full group-hover:scale-105 transition-transform">NEW</span>
-          </button>
-          <button className="text-sm md:text-base hover:text-emerald-600 transition-colors">Agents</button>
-        </nav>
+      <div className="relative z-10 px-4 pt-24 pb-32 max-w-5xl mx-auto">
+        {/* Hero Text */}
+        <div className="text-center text-white mb-14">
+          <h1 className="text-[56px] leading-[1.1] font-bold mb-3">Real homes live here</h1>
+          <p className="text-2xl font-light">Real Prices. Real Photos. Real Properties</p>
+        </div>
 
-        {/* Hero Text with Animation */}
-        <div className="text-center text-white mb-12 space-y-4">
-          <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white via-white/90 to-white/80">
-            Real homes live here
-          </h1>
-          <p className="text-lg sm:text-xl md:text-2xl text-white/90 font-light">
-            Real Prices. Real Photos. Real Properties
-          </p>
+        {/* Navigation Tabs */}
+        <div className="flex justify-center mb-8">
+          <div className="bg-white rounded-[10px] inline-flex p-1.5">
+            {['Properties', 'New Projects', 'Transactions', 'TruEstimate™', 'Agents'].map((tab, index) => (
+              <button
+                key={tab}
+                className={`px-6 py-2.5 rounded-[10px] text-[15px] font-medium transition-all duration-200 ${
+                  index === 0 ? 'bg-gradient-to-r from-green-800 to-green-600 text-white shadow-sm' : 'text-gray-700 hover:bg-gray-50'
+                }`}
+              >
+                {tab} {index === 3 && <span className="ml-1 text-[11px] bg-red-500 text-white px-1.5 py-0.5 rounded-[10px] font-medium">NEW</span>}
+              </button>
+            ))}
+          </div>
         </div>
 
         {/* Search Section */}
-        <div className="max-w-6xl mx-auto space-y-6">
+        <div className="bg-white rounded-[10px] p-7 shadow-lg">
           {/* Buy/Rent Toggle */}
-          <div className="bg-white/95 backdrop-blur-md p-1.5 rounded-full inline-flex mx-auto shadow-lg">
-            <button className="px-6 sm:px-8 py-2.5 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-full shadow-sm text-sm sm:text-base">Buy</button>
-            <button className="px-6 sm:px-8 py-2.5 hover:bg-black/5 rounded-full transition-colors text-sm sm:text-base">Rent</button>
+          <div className="bg-gray-100 inline-flex rounded-[10px] p-1 mb-7">
+            <button className="px-12 py-2.5 rounded-[10px] bg-gradient-to-r from-green-800 to-green-600 text-white shadow-sm font-medium">Buy</button>
+            <button className="px-12 py-2.5 rounded-[10px] text-gray-700 hover:bg-gray-50 transition-colors font-medium">Rent</button>
           </div>
 
-          {/* Search Bar */}
-          <div className="flex flex-col md:flex-row gap-4 w-full max-w-4xl mx-auto">
-            <div className="flex-1 bg-white/95 backdrop-blur-md rounded-full p-4 shadow-lg hover:shadow-xl transition-shadow">
-              <input 
-                type="text" 
+          {/* Search Controls */}
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <div className="relative">
+              <FaMapMarkerAlt className="absolute left-4 top-1/2 -translate-y-1/2 text-green-700 text-lg" />
+              <input
+                type="text"
                 placeholder="Enter location"
-                className="w-full outline-none bg-transparent placeholder:text-gray-400 text-sm sm:text-base"
+                className="w-full pl-12 pr-4 py-3.5 border border-gray-200 rounded-[10px] text-[15px] placeholder:text-gray-500 focus:outline-none focus:border-green-700 transition-colors"
               />
             </div>
-            <button className="bg-gradient-to-r from-emerald-500 to-emerald-600 text-white px-8 sm:px-12 py-4 rounded-full hover:shadow-lg hover:shadow-emerald-500/20 transition-all transform hover:-translate-y-0.5 text-sm sm:text-base whitespace-nowrap">
-              Search
-            </button>
+            {['Residential', 'Beds & Baths', 'Price (GBP)'].map((option) => (
+              <select 
+                key={option}
+                className="border border-gray-200 rounded-[10px] px-4 py-3.5 text-[15px] text-gray-700 appearance-none bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNNiA5TDEyIDE1TDE4IDkiIHN0cm9rZT0iIzY0NzQ4QiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L3N2Zz4=')] bg-[length:16px] bg-[right_16px_center] bg-no-repeat focus:outline-none focus:border-green-700 cursor-pointer"
+              >
+                <option>{option}</option>
+              </select>
+            ))}
           </div>
 
-          {/* Filters */}
-          <div className="flex flex-wrap gap-3 sm:gap-4 justify-center">
-            <button className="text-sm bg-emerald-100 text-emerald-600 px-4 sm:px-6 py-2.5 rounded-full hover:shadow-md transition-shadow">All</button>
-            <button className="text-sm bg-white/95 backdrop-blur-md px-4 sm:px-6 py-2.5 rounded-full hover:bg-emerald-50 transition-colors">Ready</button>
-            <button className="text-sm bg-white/95 backdrop-blur-md px-4 sm:px-6 py-2.5 rounded-full hover:bg-emerald-50 transition-colors">Off-Plan</button>
-            <select className="text-sm bg-white/95 backdrop-blur-md px-4 sm:px-6 py-2.5 rounded-full outline-none hover:bg-emerald-50 transition-colors cursor-pointer">
-              <option>Residential</option>
-            </select>
-            <select className="text-sm bg-white/95 backdrop-blur-md px-4 sm:px-6 py-2.5 rounded-full outline-none hover:bg-emerald-50 transition-colors cursor-pointer">
-              <option>Beds & Baths</option>
-            </select>
-            <select className="text-sm bg-white/95 backdrop-blur-md px-4 sm:px-6 py-2.5 rounded-full outline-none hover:bg-emerald-50 transition-colors cursor-pointer">
-              <option>Price (GBP)</option>
-            </select>
+          {/* Property Types */}
+          <div className="flex gap-2.5 mt-5 mb-7">
+            {['All', 'Ready', 'Off-Plan'].map((type, index) => (
+              <button
+                key={type}
+                className={`px-6 py-2.5 rounded-[10px] text-[15px] font-medium transition-all duration-200 ${
+                  index === 0 
+                    ? 'bg-green-50 text-green-700 border border-green-100' 
+                    : 'border border-gray-200 text-gray-700 hover:border-gray-300'
+                }`}
+              >
+                {type}
+              </button>
+            ))}
+          </div>
+
+          {/* AI Assistant */}
+          <div className="flex items-center justify-between bg-green-50 rounded-[10px] p-4">
+            <div className="flex items-center gap-3">
+              <RiAiGenerate className="text-2xl text-green-700" />
+              <p className="text-[15px] text-gray-700">Want to find out more about UAE real estate using AI?</p>
+            </div>
+            <button className="text-green-700 font-medium text-[15px] flex items-center gap-2 hover:gap-3 transition-all">
+              Try BayutGPT
+              <span className="text-lg">→</span>
+            </button>
           </div>
         </div>
 
         {/* Experience Journey Button */}
-        <div className="text-center mt-12 sm:mt-20">
-          <button className="group bg-black/20 text-white px-6 sm:px-10 py-3 sm:py-4 rounded-full backdrop-blur-md border border-white/10 hover:bg-black/30 hover:border-white/20 transition-all hover:shadow-lg hover:shadow-black/20">
-            <span className="flex items-center gap-3 text-sm sm:text-base">
-              <span className="w-5 h-5 sm:w-6 sm:h-6 flex items-center justify-center rounded-full bg-white/20 group-hover:bg-white/30 transition-colors">▶</span>
-              Experience the Journey
-            </span>
+        <div className="text-center mt-14">
+          <button className="inline-flex items-center gap-3 text-white border-2 border-white/80 rounded-[10px] px-8 py-3.5 hover:bg-white/10 transition-colors">
+            <FaPlay className="text-sm" />
+            <span className="text-[15px] font-medium">Experience the Journey</span>
           </button>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
